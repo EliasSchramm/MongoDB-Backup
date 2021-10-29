@@ -62,10 +62,10 @@ def main():
 
                     index = 1
                     for entry in content:
-                        file.write(json.dumps(entry, default=str))
-
-                        if not index == count_documents:
+                        if not index == 1:
                             file.write(",")
+
+                        file.write(json.dumps(entry, default=str))
 
                         index += 1
 
