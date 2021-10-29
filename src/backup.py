@@ -3,6 +3,7 @@ import pymongo
 import sys
 from pathlib import Path
 import os
+import json
 
 BLACKLISTED_DATABASES = ["config"]
 
@@ -61,7 +62,7 @@ def main():
 
                     index = 1
                     for entry in content:
-                        file.write(str(entry).replace("'", '"'))
+                        file.write(json.dumps(entry, default=str))
 
                         if not index == count_documents:
                             file.write(",")
